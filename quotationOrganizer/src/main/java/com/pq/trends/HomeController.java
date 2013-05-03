@@ -1,8 +1,8 @@
 package com.pq.trends;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import org.slf4j.Logger;
@@ -38,7 +38,7 @@ public class HomeController {
 		
 		 logger.info("SitePreference : " + sitePreference);
 	        logger.info("Device : " + device);
-	         
+	        userservice.addUsers(this.userstoadd()); 
 	        model.addAttribute("message", "Hello World!");
 		model.addAttribute("controllerMessage", "deviceIsMobile= " + device.isMobile() + " prefersMobile="
 				+ (sitePreference == SitePreference.MOBILE) );
@@ -47,7 +47,7 @@ public class HomeController {
 		model.addAttribute("controllerMessage2", "deviceIsNormal= " + device.isNormal() + " prefersNormal="
 								+ (sitePreference == SitePreference.NORMAL));
 	sitePreference.isNormal();
-		User user = userservice.findUser("rajeev","password");
+		User user = userservice.findUser("rajeev1","password");
 		logger.info(user.toString());
 		model.addAttribute("FirstName", user.getFirstName() );
 		model.addAttribute("email", user.getEmail() );
@@ -79,5 +79,17 @@ public class HomeController {
 
 	}
 	
+	
+	public List<User> userstoadd(){
+		List<User> ltu = new ArrayList<User>();
+		
+		
+		for(int i=0 ;i<100;i++){
+			
+			User u = new User(i , "rajeev" +i , "kumar"+i, "r-chopra@hotmail.com","password");
+			ltu.add(u);
+		}
+		return ltu;
+	}
 	
 }

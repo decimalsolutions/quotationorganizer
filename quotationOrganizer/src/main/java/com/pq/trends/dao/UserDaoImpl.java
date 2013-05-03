@@ -101,4 +101,10 @@ public class UserDaoImpl implements UserDao {
 		return null;
 	}
 
+	@Override
+	public void addUsers(List<User> userstoadd) {
+		mongoTemplate.insert(userstoadd, "users");
+		
+	}
+
 }

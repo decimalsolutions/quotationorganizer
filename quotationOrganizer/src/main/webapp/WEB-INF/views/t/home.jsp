@@ -21,6 +21,6 @@
      <label for="text-3">Text input: data-clear-btn="true"</label>
      <input data-clear-btn="true" name="text-3" id="text-3" value="" type="text">
 </form>
-<p> View: <a href="http://localhost:8080/trends/?site_preference=normal">Normal</a> | <a href="?site_preference=mobile">Mobile</a></p>
+<p> View: <a href="?site_preference=normal">Normal</a> | <a href="?site_preference=mobile">Mobile</a></p>
 	</body>
 </html>

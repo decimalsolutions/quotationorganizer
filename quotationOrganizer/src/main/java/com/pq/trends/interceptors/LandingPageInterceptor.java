@@ -8,10 +8,12 @@ import static com.pq.trends.staticConstants.Constants.USER_KEY;
 import java.util.Enumeration;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequestWrapper;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -41,7 +43,8 @@ logger.info(INTERCEPTOR_AFTERCOMPLETION);
 	@Override
 	public void postHandle(HttpServletRequest req, HttpServletResponse res,
 			Object arg2, ModelAndView mav) throws Exception {
-		// TODO Auto-generated method stub
+		HttpServletRequestWrapper wrapper = new HttpServletRequestWrapper(req);
+		System.out.println(wrapper.getAttribute("accept"));
 		
 		logger.info(INTERCEPTOR_POSTHANDLER);
 	}

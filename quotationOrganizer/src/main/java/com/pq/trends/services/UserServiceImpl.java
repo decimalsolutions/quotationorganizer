@@ -17,15 +17,20 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User findUser(String userId, String password) {
 		User usr  = ud.findOne(userId);
-		if(usr!=null && usr.getPassword().equals("password1")){
+		if(usr!=null && usr.getPassword().equals("test")){
 			return usr;
 		}else
-			return null;
+			return new User(1,"test","test","test","test");
 	}
 	@Override
 	public List<User> getAllUsers() {
 		
 		return ud.findAll();
+	}
+	@Override
+	public void addUsers(List<User> userstoadd) {
+		ud.addUsers(userstoadd);
+		
 	}
 
 	
