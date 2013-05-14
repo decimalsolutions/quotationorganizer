@@ -47,7 +47,7 @@ public class HomeController {
 		model.addAttribute("controllerMessage2", "deviceIsNormal= " + device.isNormal() + " prefersNormal="
 								+ (sitePreference == SitePreference.NORMAL));
 	sitePreference.isNormal();
-		User user = userservice.findUser("rajeev","password");
+		User user = userservice.findUser("1","password");
 		logger.info(user.toString());
 		model.addAttribute("FirstName", user.getFirstName() );
 		model.addAttribute("email", user.getEmail() );
@@ -79,5 +79,23 @@ public class HomeController {
 
 	}
 	
+	@RequestMapping(value = "/updateuser", method = RequestMethod.GET)
+	public String updateUser() {
+		 logger.info("@updateUser");
+		return "userupdate";
+	}
+	
+
+	@RequestMapping(value = "/adduser", method = RequestMethod.GET)
+	public String addUser() {
+		 logger.info("@addUser");
+		return "useradd";
+	}
+	
+	@RequestMapping(value = "/deleteuser", method = RequestMethod.GET)
+	public String deleteUser() {
+		 logger.info("@deleteuser");
+		return "userdelete";
+	}
 	
 }

@@ -23,7 +23,7 @@ public class UserDaoImpl implements UserDao {
 		List<User> allUsers = mongoTemplate.findAll(User.class);
 		return allUsers;
 	}
-
+ 	
 	@Override
 	public List<User> findAll(Sort arg0) {
 		// TODO Auto-generated method stub
@@ -50,8 +50,10 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public void delete(String arg0) {
-		// TODO Auto-generated method stub
-
+		Query query2 = new Query();
+		query2.addCriteria(Criteria.where("id").is(new Integer(arg0)));		 
+		mongoTemplate.remove(query2,User.class);
+	 
 	}
 
 	@Override
@@ -85,10 +87,10 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public User findOne(String arg0) {
+	public User findOne(String id) {
 		
 		Query query2 = new Query();
-		query2.addCriteria(Criteria.where("firstName").is("rajeev1"));
+		query2.addCriteria(Criteria.where("id").is(new Integer(id)));
 		
 		User lu = mongoTemplate.findOne(query2,User.class);
 		System.out.println(lu);
@@ -96,9 +98,14 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public <S extends User> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public <S extends User> S save(S arg0) {		 
+		mongoTemplate.save(arg0);
+		return arg0;
+	}
+	
+ 	public void remove(User user) {		 
+		mongoTemplate.remove((Object)user);
+		 
 	}
 
 }
