@@ -46,12 +46,10 @@ public class HomeController {
 						+ (sitePreference == SitePreference.TABLET) );
 		model.addAttribute("controllerMessage2", "deviceIsNormal= " + device.isNormal() + " prefersNormal="
 								+ (sitePreference == SitePreference.NORMAL));
-	sitePreference.isNormal();
-<<<<<<< HEAD
+     	sitePreference.isNormal();
+
 		User user = userservice.findUser("1","password");
-=======
-		User user = userservice.findUser("rajeev1","password");
->>>>>>> origin/HEAD
+ 
 		logger.info(user.toString());
 		model.addAttribute("FirstName", user.getFirstName() );
 		model.addAttribute("email", user.getEmail() );

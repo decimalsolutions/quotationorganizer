@@ -3,7 +3,6 @@ package com.pq.trends.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.pq.trends.dao.UserDao;
@@ -17,11 +16,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User findUser(String userId, String password) {
 		User usr  = ud.findOne(userId);
-<<<<<<< HEAD
-		if(usr!=null && usr.getPassword().equals("password")){
-=======
-		if(usr!=null && usr.getPassword().equals("test")){
->>>>>>> origin/HEAD
+ 		if(usr!=null && usr.getPassword().equals("password")){ 
 			return usr;
 		}else
 			return new User(1,"test","test","test","test");
