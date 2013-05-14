@@ -16,4 +16,6 @@ public interface UserService {
 
 	void delete(String id);
 
+	void addUsers(List<User> userstoadd);
+
 }

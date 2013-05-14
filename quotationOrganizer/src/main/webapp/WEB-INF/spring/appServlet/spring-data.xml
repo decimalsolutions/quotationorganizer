@@ -10,12 +10,17 @@
           http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
  
+<<<<<<< HEAD
 	<!-- <mongo:mongo host="127.0.0.1" port="27017" />
 	<mongo:db-factory dbname="analatics" /> -->
 	
 	<mongo:mongo host="ds059557.mongolab.com" port="59557" id="mongo" />
 	<mongo:db-factory dbname="demodb" username="demo" password="demotest" mongo-ref="mongo"/>
 	
+=======
+	<mongo:mongo host="ds059557.mongolab.com" port="59557" id="mongo" />
+	<mongo:db-factory dbname="demodb" username="demo" password="demotest" mongo-ref="mongo"/>
+>>>>>>> origin/HEAD
  
 	<beans:bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 		<beans:constructor-arg name="mongoDbFactory" ref="mongoDbFactory"  />
