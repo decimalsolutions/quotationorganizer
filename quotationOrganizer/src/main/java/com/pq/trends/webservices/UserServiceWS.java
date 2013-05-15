@@ -37,11 +37,12 @@ public class UserServiceWS {
 	
 	@GET
 	@Path("/finduser/{id}")
+	@Produces({MediaType.APPLICATION_JSON})
 	public Response getUser(@PathParam("id") String id) {
 		System.out.println("@GET Find User Method ::: " + id);
 		User user = userservice.findUser(id, "weclome");	 
 		System.out.println("@GET Find User Method :user:: " + user);
-		return Response.status(200).entity("Welcome to RestFul Web Services").build();
+		return Response.status(200).entity(user).build();
 	}
 	
 	
